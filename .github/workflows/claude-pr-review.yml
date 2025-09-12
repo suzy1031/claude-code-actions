@@ -19,10 +19,8 @@ jobs:
           fetch-depth: 1
 
       - name: PR Review with Progress Tracking
-        uses: anthropics/claude-code-action@v1
+        uses: anthropics/claude-code-action@beta
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          prompt_file: ".cursor/commands/review.md"
-          track_progress: true
-          claude_args: |
-            allowedTools "mcp__github_inline_comment__inline_create_comment"
+          prompt_file: ".claude/commands/review.md"
+          allowed_tools: "mcp__github_inline_comment__inline_create_comment"
