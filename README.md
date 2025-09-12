@@ -1,3 +1,1 @@
-hello
-
-lollo, claude code actions!!
+welcome to claude-code-actions repo!!!
