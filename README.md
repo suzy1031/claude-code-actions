@@ -11,3 +11,5 @@ mode なし
 
 こんにちわ!! claude code actinons!!
 mcp**github_inline_comment**create_inline_comment
+
+こんちは!! claude code actins!!
