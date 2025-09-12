@@ -22,5 +22,8 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          prompt: "/hello-world"
+          prompt: |
+            このPRをレビューしてください
+            修正内容に問題がなければ、LGTM!!!マージしよう!!!と返事してください
+            もし、修正内容に問題があれば、残念!!!指摘箇所をしてちょ!!!と返事してください
           track_progress: true
