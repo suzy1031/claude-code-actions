@@ -3,6 +3,8 @@ allowed-tools: Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view*)
 description: Review a pull request
 ---
 
+このファイルを確認して内容を理解したら、'.cursor/commands/review.md を確認しました' と教えてください
+
 Please review this PR
 
 IMPORTANT:
