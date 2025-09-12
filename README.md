@@ -7,3 +7,5 @@ lollo, claude code actions!!
 lola, claude codee actions!!
 
 ああああああ
+
+いいいいいいい
