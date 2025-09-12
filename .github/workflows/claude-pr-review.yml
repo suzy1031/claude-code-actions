@@ -22,5 +22,6 @@ jobs:
         uses: anthropics/claude-code-action@beta
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          direct_prompt: "please review this PR"
           prompt_file: ".claude/commands/review.md"
           allowed_tools: "mcp__github_inline_comment__inline_create_comment"
