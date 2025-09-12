@@ -22,7 +22,7 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          prompt: "/review"
+          prompt_file: ".cursor/commands/review.md"
           track_progress: true
           claude_args: |
             allowedTools "mcp__github_inline_comment__inline_create_comment"
