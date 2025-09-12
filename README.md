@@ -7,3 +7,5 @@ lollo, claude code actions
 lola, claude code actions!!
 
 スラッシュコアンド追加
+
+v1 にあっぷでいと
