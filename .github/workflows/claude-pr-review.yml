@@ -24,7 +24,6 @@ jobs:
         uses: anthropics/claude-code-action@beta
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          mode: "experimental-review"
           direct_prompt: |
             REPO: ${{ github.repository }}
             PR NUMBER: ${{ github.event.pull_request.number }}
@@ -43,7 +42,6 @@ jobs:
             - Always respond and comment in Japanese (日本語)
             - All outputs, comments, and explanations must be in Japanese
             - Submit as "COMMENT" type so the review doesn't block the PR.
-          track_progress: true
           allowed_tools: "mcp__github__create_pending_pull_request_review,mcp__github__add_comment_to_pending_review,mcp__github__submit_pending_pull_request_review,mcp__github__get_pull_request_diff"
 
           # Optional: Customize the trigger phrase (default: @claude)
