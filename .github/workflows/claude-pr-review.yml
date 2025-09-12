@@ -5,7 +5,7 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  claude-review-paths:
+  review:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -18,11 +18,11 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Claude Code Review
+      - name: PR Review with Progress Tracking
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          prompt: "/pr-review REPO: ${{ github.repository }} PR_NUMBER ${{ github.event.pull_request.number }}"
+          prompt: "/review"
           track_progress: true
           claude_args: |
-            allowedTools mcp__github__create_pending_pull_request_review,mcp__github__add_comment_to_pending_review,mcp__github__submit_pending_pull_request_review,mcp__github__get_pull_request_diff
+            allowedTools "mcp__github_inline_comment__inline_create_comment"
