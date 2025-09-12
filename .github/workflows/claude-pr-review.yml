@@ -21,16 +21,18 @@ jobs:
 
       - name: Run Claude Code
         id: claude
-        uses: anthropics/claude-code-action@beta
+        uses: anthropics/claude-code-action@v1.0.0
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          direct_prompt: |
+          prompt: |
             REPO: ${{ github.repository }}
             PR NUMBER: ${{ github.event.pull_request.number }}
 
             Review this PR and create inline comments
             Use mcp__github_inline_comment__create_inline_comment to add specific feedback
-          allowed_tools: "mcp__github_inline_comment__create_inline_comment"
+          claude_args: |
+            --allowedTools: "mcp__github_inline_comment__create_inline_comment"
+          # allowed_tools: "mcp__github_inline_comment__create_inline_comment"
 
           # Optional: Customize the trigger phrase (default: @claude)
           # trigger_phrase: "/claude"
