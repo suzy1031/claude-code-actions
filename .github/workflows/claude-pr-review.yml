@@ -26,13 +26,7 @@ jobs:
             REPO: ${{ github.repository }}
             PR NUMBER: ${{ github.event.pull_request.number }}
 
-            レビュー内容はユーザーが読みやすい、以下のファーマットに沿ったマークダウン形式で出力すること。
-            | label                         | value1                                  | value2                         | value3                        |
-            | ----------------------------- | --------------------------------------- | ------------------------------ | ----------------------------- |
-            | 日時 (レビューが完了した時刻) | yyyy-mm-dd hh:mm フォーマットで出力する | -                              | -                             |
-            | コスト                        | $から円に換算して出力する               | -                              | -                             |
-            | レビュー結果                  | LGTM!! or 修正お願いします              | -                              | -                             |
-            | レビュー内容                  | レビュー内容を記入                      | ファイル名<br>e.g. src/calc.ts | 指摘箇所の行数<br>e.g. L10-12 |
+            /custom-pr-review ${{ github.repository }} ${{ github.event.pull_request.number }}
           track_progress: true
           claude_args: |
             --model claude-3-5-haiku-20241022
