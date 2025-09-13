@@ -27,3 +27,5 @@ jobs:
             修正内容に問題がなければ、LGTM!!!マージしよう!!!と返事してください
             もし、修正内容に問題があれば、残念!!!指摘箇所をしてちょ!!!と返事してください
           track_progress: true
+          claude_args: |
+            --model claude-3-5-haiku-20241022
