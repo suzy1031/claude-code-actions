@@ -1,3 +1,3 @@
 hello
 
-lollo, claude code actions!!
+Hello, claude code actions!!
