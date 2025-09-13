@@ -22,3 +22,18 @@ export function subtract(a: number, b: number): number {
   }
   return result;
 }
+
+/**
+ * 2つの数値を受け取り、その積を返す関数
+ * @param a 第1引数 - 数値
+ * @param b 第2引数 - 数値
+ * @returns 2つの引数の積（a × b）
+ * @throws {Error} 結果がマイナスになる場合
+ */
+export function multiply(a: number, b: number): number {
+  const result = a * b;
+  if (result < 0) {
+    throw new Error('掛け算の結果がマイナスになりました');
+  }
+  return result;
+}
