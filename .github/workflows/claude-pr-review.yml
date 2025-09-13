@@ -26,7 +26,8 @@ jobs:
             REPO: ${{ github.repository }}
             PR NUMBER: ${{ github.event.pull_request.number }}
 
-            /custom-pr-review
+            次のマークダウンファイルを確認し、記載された指示を厳守してPRをレビューしてください。
+            .claude/commands/custom-pr-review.md
           track_progress: true
           claude_args: |
             --model claude-3-5-haiku-20241022
