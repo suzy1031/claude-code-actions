@@ -37,3 +37,24 @@ export function multiply(a: number, b: number): number {
   }
   return result;
 }
+
+/**
+ * 3つの引数を受け取り、操作タイプに応じて対応する関数を実行する統合関数
+ * @param operation 実行する操作タイプ ('add' | 'subtract' | 'multiply')
+ * @param a 第1数値引数
+ * @param b 第2数値引数
+ * @returns 指定された操作の結果
+ * @throws {Error} 無効な操作タイプが指定された場合、または各関数でエラーが発生した場合
+ */
+export function calculate(operation: 'add' | 'subtract' | 'multiply', a: number, b: number): number {
+  switch (operation) {
+    case 'add':
+      return add(a, b);
+    case 'subtract':
+      return subtract(a, b);
+    case 'multiply':
+      return multiply(a, b);
+    default:
+      throw new Error(`無効な操作タイプです: ${operation}`);
+  }
+}
