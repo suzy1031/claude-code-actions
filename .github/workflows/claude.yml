@@ -1,4 +1,4 @@
-name: Claude Code
+name: Claude Code Create PR from github Issue
 
 on:
   issue_comment:
