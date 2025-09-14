@@ -1,11 +1,3 @@
----
-allowed-tools: Bash(git:*), Bash(npm:*), Fetch(*)
-argument-hint: [repo] [pr-number]
-description: 以下のルールを厳守してPull Requestのレビューを行います
-model: claude-3-5-haiku-20241022
----
-
-$1 の #$2 の pull request のレビューを行います
 内容はユーザーが読みやすい、以下のフォーマットに沿ったマークダウン形式で出力すること
 
 | label                         | value1                                  | value2                         | value3                        |
