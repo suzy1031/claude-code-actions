@@ -18,16 +18,23 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Load review prompt from file
+        id: load-prompt
+        run: |
+          echo "PROMPT<<EOF" >> $GITHUB_ENV
+          cat .claude/commands/custom-pr-review.md >> $GITHUB_ENV
+          echo "" >> $GITHUB_ENV
+          echo "REPO: ${{ github.repository }}" >> $GITHUB_ENV
+          echo "PR NUMBER: ${{ github.event.pull_request.number }}" >> $GITHUB_ENV
+          echo "" >> $GITHUB_ENV
+          echo "上記のレビューポリシーに従って、このPRをレビューしてください。" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
       - name: PR Review with Progress Tracking
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          prompt: |
-            REPO: ${{ github.repository }}
-            PR NUMBER: ${{ github.event.pull_request.number }}
-
-            次の内容を正確にコメントしてください。
-            @claude /custom-pr-review ${{ github.repository }} ${{ github.event.pull_request.number }}
+          prompt: ${{ env.PROMPT }}
           track_progress: true
           claude_args: |
             --model claude-3-5-haiku-20241022
