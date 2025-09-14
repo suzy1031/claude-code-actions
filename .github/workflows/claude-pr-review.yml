@@ -22,7 +22,7 @@ jobs:
         id: load-prompt
         run: |
           echo "PROMPT<<EOF" >> $GITHUB_ENV
-          cat ai-docs/pr-review.md >> $GITHUB_ENV
+          cat .claude/commands/custom-pr-review.md >> $GITHUB_ENV
           echo "" >> $GITHUB_ENV
           echo "REPO: ${{ github.repository }}" >> $GITHUB_ENV
           echo "PR NUMBER: ${{ github.event.pull_request.number }}" >> $GITHUB_ENV
