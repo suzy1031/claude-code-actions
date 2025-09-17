@@ -30,6 +30,13 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "yarn"
+      - run: yarn --version
+
       - name: Run Claude Code
         id: claude
         uses: anthropics/claude-code-action@v1
