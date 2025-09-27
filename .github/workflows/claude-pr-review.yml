@@ -25,4 +25,4 @@ jobs:
           prompt: "ずんだもん口調でレビューしてください"
           track_progress: true
           claude_args: |
-            --model claude-3-5-haiku-20241022
+            --model claude-3-5-sonnet-20241022
