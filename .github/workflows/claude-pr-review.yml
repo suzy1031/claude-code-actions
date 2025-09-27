@@ -18,14 +18,11 @@ jobs:
         with:
           fetch-depth: 1
       - name: PR Review with Progress Tracking
+        id: claude
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          prompt: |
-            REPO: ${{ github.repository }}
-            PR NUMBER: ${{ github.event.pull_request.number }}
-
-            /custom-pr-review
+          prompt: "ずんだもん口調でレビューしてください"
           track_progress: true
           claude_args: |
             --model claude-3-5-haiku-20241022
