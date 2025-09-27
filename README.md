@@ -10,18 +10,21 @@ This module provides basic arithmetic calculation functions.
 
 #### `add(a: number, b: number): number`
 
-2つの数値を受け取り、その合計を返す関数
+2 つの数値を受け取り、その合計を返す関数
 
 **Parameters:**
-- `a` - 第1引数（数値）
-- `b` - 第2引数（数値）
+
+- `a` - 第 1 引数（数値）
+- `b` - 第 2 引数（数値）
 
 **Returns:**
-- 2つの引数の合計
+
+- 2 つの引数の合計
 
 **Usage Example:**
+
 ```typescript
-import { add } from './src/culc';
+import { add } from "./src/culc";
 
 const result = add(5, 3);
 console.log(result); // 8
@@ -29,21 +32,25 @@ console.log(result); // 8
 
 #### `subtract(a: number, b: number): number`
 
-2つの数値を受け取り、その差を返す関数
+2 つの数値を受け取り、その差を返す関数
 
 **Parameters:**
-- `a` - 第1引数（被減数）
-- `b` - 第2引数（減数）
+
+- `a` - 第 1 引数（被減数）
+- `b` - 第 2 引数（減数）
 
 **Returns:**
-- 2つの引数の差（a - b）
+
+- 2 つの引数の差（a - b）
 
 **Throws:**
+
 - `Error` - 結果がマイナスになる場合
 
 **Usage Example:**
+
 ```typescript
-import { subtract } from './src/culc';
+import { subtract } from "./src/culc";
 
 // 正常なケース
 const result1 = subtract(10, 3);
@@ -60,7 +67,7 @@ try {
 ### Complete Usage Example
 
 ```typescript
-import { add, subtract } from './src/culc';
+import { add, subtract } from "./src/culc";
 
 // 加算の例
 const sum = add(15, 25);
