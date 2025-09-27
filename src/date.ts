@@ -5,23 +5,23 @@
  * @throws {Error} 無効な日付文字列が入力された場合
  */
 export function formatToYyyyMmDd(dateString: string): string {
-  if (!dateString || typeof dateString !== 'string') {
-    throw new Error('有効な日付文字列を入力してください');
+  if (!dateString || typeof dateString !== "string") {
+    throw new Error("有効な日付文字列を入力してください。");
   }
 
   // 文字列をトリムして空白文字を除去
   const trimmedString = dateString.trim();
 
-  if (trimmedString === '') {
-    throw new Error('空の文字列は変換できません');
+  if (trimmedString === "") {
+    throw new Error("空の文字列は変換できません");
   }
 
   // 様々な区切り文字を統一（ハイフン、スラッシュ、ドット、スペース）
   const normalizedString = trimmedString
-    .replace(/[-\.\/\s]+/g, '/')
-    .replace(/年|月|日/g, '/') // 日本語の年月日も対応
-    .replace(/\/+/g, '/') // 連続するスラッシュを単一に
-    .replace(/^\/|\/$/g, ''); // 先頭と末尾のスラッシュを除去
+    .replace(/[-\.\/\s]+/g, "/")
+    .replace(/年|月|日/g, "/") // 日本語の年月日も対応
+    .replace(/\/+/g, "/") // 連続するスラッシュを単一に
+    .replace(/^\/|\/$/g, ""); // 先頭と末尾のスラッシュを除去
 
   // 数字のみの文字列（YYYYMMDD形式）の場合
   if (/^\d{8}$/.test(normalizedString)) {
@@ -32,21 +32,21 @@ export function formatToYyyyMmDd(dateString: string): string {
   }
 
   // スラッシュで区切られた形式
-  const parts = normalizedString.split('/');
+  const parts = normalizedString.split("/");
 
   if (parts.length !== 3) {
-    throw new Error('日付は年、月、日の3つの部分で構成される必要があります');
+    throw new Error("日付は年、月、日の3つの部分で構成される必要があります");
   }
 
   let year: string, month: string, day: string;
 
   // 各部分が数値かチェック
-  if (!parts.every(part => /^\d+$/.test(part))) {
-    throw new Error('日付の各部分は数値である必要があります');
+  if (!parts.every((part) => /^\d+$/.test(part))) {
+    throw new Error("日付の各部分は数値である必要があります");
   }
 
   // 年の位置を判定（4桁の場合は年として扱う）
-  const yearIndex = parts.findIndex(part => part.length === 4);
+  const yearIndex = parts.findIndex((part) => part.length === 4);
 
   if (yearIndex !== -1) {
     // 4桁の年が見つかった場合
@@ -89,36 +89,42 @@ export function formatToYyyyMmDd(dateString: string): string {
  * @returns yyyy/mm/dd形式の日付文字列
  * @throws {Error} 無効な日付の場合
  */
-function validateAndFormatDate(year: string, month: string, day: string): string {
+function validateAndFormatDate(
+  year: string,
+  month: string,
+  day: string
+): string {
   const yearNum = parseInt(year);
   const monthNum = parseInt(month);
   const dayNum = parseInt(day);
 
   // 基本的な範囲チェック
   if (yearNum < 1000 || yearNum > 9999) {
-    throw new Error('年は4桁の数値である必要があります');
+    throw new Error("年は4桁の数値である必要があります");
   }
 
   if (monthNum < 1 || monthNum > 12) {
-    throw new Error('月は1から12の間の数値である必要があります');
+    throw new Error("月は1から12の間の数値である必要があります");
   }
 
   if (dayNum < 1 || dayNum > 31) {
-    throw new Error('日は1から31の間の数値である必要があります');
+    throw new Error("日は1から31の間の数値である必要があります");
   }
 
   // Dateオブジェクトを使って実際の日付として有効かチェック
   const date = new Date(yearNum, monthNum - 1, dayNum);
 
-  if (date.getFullYear() !== yearNum ||
-      date.getMonth() !== monthNum - 1 ||
-      date.getDate() !== dayNum) {
-    throw new Error('存在しない日付です');
+  if (
+    date.getFullYear() !== yearNum ||
+    date.getMonth() !== monthNum - 1 ||
+    date.getDate() !== dayNum
+  ) {
+    throw new Error("存在しない日付です");
   }
 
   // yyyy/mm/dd形式でフォーマット
-  const formattedMonth = monthNum.toString().padStart(2, '0');
-  const formattedDay = dayNum.toString().padStart(2, '0');
+  const formattedMonth = monthNum.toString().padStart(2, "0");
+  const formattedDay = dayNum.toString().padStart(2, "0");
 
   return `${yearNum}/${formattedMonth}/${formattedDay}`;
 }
