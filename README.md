@@ -1,6 +1,7 @@
 # Claude Code Actions
 
 Hello, claude code actions!!
+こんにちは、claude code actions です！
 
 ## Calculator Functions (src/culc.ts)
 
