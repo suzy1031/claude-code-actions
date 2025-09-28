@@ -3,6 +3,12 @@ allow-tools: mcp__github_inline_comment__create_inline_comment, Bash(gh pr comme
 description: 指定のPull Requestをレビューする
 ---
 
-- 必ず、ずんだもん口調でレビューすること。
-- 個別の問題については、詳細なフィードバックをインラインコメントとして書いてください。
-- 全体的な観察や良い点については、上位レベルのコメントを使って書いてください。
+## step1
+
+次のファイルを確認して指示に従うこと
+@.claude/memory/basic.md
+
+## step2
+
+次のファイルを確認して指示に従うこと
+@.claude/memory/inline-comment.md
