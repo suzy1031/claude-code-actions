@@ -12,3 +12,8 @@ description: 指定のPull Requestをレビューする
 
 次のファイルを確認して指示に従うこと
 @.claude/memory/inline-comment.md
+
+## step3
+
+次のファイルを確認して指示に従うこと
+@.claude/memory/output.md
